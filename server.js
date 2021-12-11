@@ -3,14 +3,14 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
 
-mongoose.connect('mongodb+srv://root:walker@sky.alxzk.mongodb.net/SKY?retryWrites=true&w=majority')
+mongoose.connect('[key here]')
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log("Mongoose | Connected to Database"))
 
 app.use((req, res, next) => {
 
-    const auth = {login: 'wa903hgsdljksh5lsnbsljdrthgnsl', password: '24o987ywe4w038hjseljnb5ws0o4587'} 
+    const auth = {login: '[user here]', password: '[pass here]'} 
   
     const b64auth = (req.headers.authorization || '').split(' ')[1] || ''
     const [login, password] = Buffer.from(b64auth, 'base64').toString().split(':')
